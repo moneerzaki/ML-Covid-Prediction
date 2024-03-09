@@ -7,4 +7,3 @@ a machine learning model that could predict the severity of a Covid patient depe
 
 ## Colab work
 [Colab Python code (stages)](https://colab.research.google.com/drive/18RR_C-7CyUFiTYhiNHZ1PDUsCY-H1cJ2?usp=sharing)
-
