@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.rtl.min.css" integrity="sha512-+IhzrT1JyXRxWuvzHykmn+RE1wXuw9sjSAmBBKnN4fRqlqwX9tTXmWPlHqOpbOyEPX3a4W8SEDwDbHJSYTO3aQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- <button class="btn btn-primary"> everything is here. </button> -->
+    <h1 class=" bg-secondary shadow  w-100 text-center border border-bold mt-2 p-3 " style="height: 10%; color: darkblue;">Client Data Entry Form</h1>
+    <div class="container border-primary w-100 d-flex align-items-center align-self-center" style="height: 80%">
+        <!-- <form method="post" class = "border border-secondary">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form> -->
+        <form method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Please correct the following errors:<br>
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            
+            <!--  -->
+            <!--  -->
+            <!-- Some personal information -->
+            <div class="container d-flex flex-row justify-content-around flex-wrap border-bottom border-primary p-2 my-2">
+                <p class="w-100 text-center fw-bolder">Personal Information </p>
+                
+                <!-- SEX -->
+                <div>
+                        <label>Patient Sex:</label><br>
+                        <label>
+                    <input type="radio" name="SEX" value="True" checked id="maleRadio"> Male
+                    </label><br>
+                    <label>
+                    <input type="radio" name="SEX" value="False" id="femaleRadio"> Female
+                    </label>
+                </div>
+            
+            
+                <!-- AGE -->
+                <div>
+                <label for="id_AGE">AGE:</label>
+                {{ form.AGE }}
+                </div>
+            
+                <!-- PREGNANT -->
+                <div>
+                    <label for="id_PREGNANT">PREGNANT:</label>
+                    {{ form.PREGNANT }}
+                </div>
+            
+            </div>
+
+
+            <!--  -->
+            <!--  -->
+            <!-- medical care recieved by the patient -->
+            <div class="container d-flex flex-column justify-content-around align-items-center flex-wrap border-bottom border-primary p-2 my-2">
+                <p class="w-100 text-center fw-bolder">Care recieved </p>
+                
+                <!-- USMER -->
+                <div class="my-3">
+                    <label>What level of medical care did the patient receive (USMER): </label><br>
+                    <label>
+                    <input type="radio" name="USMER" value="False" checked> First-level (0)
+                    </label><br>
+                    <label>
+                    <input type="radio" name="USMER" value="True"> Second-level (1)
+                    </label>
+                </div>
+
+                 <!-- PATIENT TYPE -->
+                <div class="my-3">
+                    <label>type of care the patient received in the unit. </label><br>
+                    <label>
+                    <input type="radio" name="PATIENT_TYPE" value="True" checked> hospitalized (0) <!-- 0 for hospitalization -->
+                    </label><br>
+                    <label>
+                    <input type="radio" name="PATIENT_TYPE" value="False"> returned home (1) <!-- 1 for returned home-->
+                    </label>
+                </div>
+
+                <div class="mb-3 my-3">
+                    <!-- <label for="medical_unit" class="form-label">Select Medical Unit</label> -->
+                    <label for="medical_unit_choice" class="form-label">Select type of institution of the National Health System that provided the care.</label>
+                    <!-- <select id="medical_unit" name="medical_unit" class="form-select"> -->
+                    <select id="medical_unit_choice" name="medical_unit_choice" class="form-select">
+                        <option value="1" >Medical Unit 1  General Hospital</option>
+                        <option value="2" >Medical Unit 2  Community Health Center</option>
+                        <option value="3" >Medical Unit 3  Specialty Clinic</option>
+                        <option value="4" >Medical Unit 4  Rehabilitation Center</option>
+                        <option value="5" >Medical Unit 5  Mental Health Facility</option>
+                        <option value="6" >Medical Unit 6  Outpatient Surgery Center</option>
+                        <option value="7" >Medical Unit 7  Urgent Care Center</option>
+                        <option value="8" >Medical Unit 8  Long-Term Care Facility</option>
+                        <option value="9" >Medical Unit 9  Maternity Hospital</option>
+                        <option value="10">Medical Unit 10 Pediatric Clinic</option>
+                        <option value="11">Medical Unit 11 Cancer Treatment Center</option>
+                        <option value="12">Medical Unit 12 Cardiac Care Unit</option>
+                        <option value="13">Medical Unit 13 Infectious Disease Center</option>
+                        <!-- Add options for Medical Unit 4 to Medical Unit 13 here -->
+                    </select>
+                </div>
+                
+                <!-- DEAD -->
+                <!-- <div>
+                    <label for="id_DEAD">Did the patient die:</label>
+                    {{ form.DEAD }}
+                </div> -->
+            </div>
+            
+            <div class="container d-flex flex-row justify-content-around flex-wrap border-bottom border-primary p-2 my-2 w-50">
+                <p class="w-100 text-center fw-bolder">Check all the diseases that the patient suffered from </p>
+                <!-- <div> -->
+                <!-- PNEUMONIA -->
+                <div class="m-2">
+                    <label for="id_PNEUMONIA">PNEUMONIA:</label>
+                    {{ form.PNEUMONIA }}
+                </div>
+
+                <!-- DIABETES -->
+                <div class="m-2">
+                    <label for="id_DIABETES">DIABETES:</label>
+                    {{ form.DIABETES }}
+                </div>
+            
+                <!-- COPD -->
+                <div class="m-2">
+                    <label for="id_COPD">COPD:</label>
+                    {{ form.COPD }}
+                </div>
+            
+                <!-- ASTHMA -->
+                <div class="m-2">
+                    <label for="id_ASTHMA">ASTHMA:</label>
+                    {{ form.ASTHMA }}
+                </div>
+            
+                <!-- INMSUPR -->
+                <div class="m-2">
+                    <label for="id_INMSUPR">INMSUPR:</label>
+                    {{ form.INMSUPR }}
+                </div>
+            
+                <!-- HIPERTENSION -->
+                <div class="m-2">
+                    <label for="id_HIPERTENSION">HIPERTENSION:</label>
+                    {{ form.HIPERTENSION }}
+                </div>
+            
+                <!-- OTHER DISEASE -->
+                <div class="m-2">
+                    <label for="id_OTHER_DISEASE">OTHER DISEASE:</label>
+                    {{ form.OTHER_DISEASE }}
+                </div>
+            
+                <!-- CARDIOVASCULAR -->
+                <div class="m-2">
+                    <label for="id_CARDIOVASCULAR">CARDIOVASCULAR:</label>
+                    {{ form.CARDIOVASCULAR }}
+                </div>
+            
+                <!-- OBESITY -->
+                <div class="m-2">
+                    <label for="id_OBESITY">OBESITY:</label>
+                    {{ form.OBESITY }}
+                </div>
+            
+                <!-- RENAL CHRONIC -->
+                <div class="m-2">
+                    <label for="id_RENAL_CHRONIC">RENAL CHRONIC:</label>
+                    {{ form.RENAL_CHRONIC }}
+                </div>
+            </div>
+
+            <div class="container d-flex flex-row justify-content-around flex-wrap border-bottom border-primary p-2 my-2">
+                <p class="w-100 text-center fw-bolder">Additional Info </p>
+                <!-- TOBACO -->
+                <div>
+                <label for="id_TOBACO">Does the patient Smokes Tobaco:</label>
+                {{ form.TOBACO }}
+                </div>
+            </div>
+        
+            
+  
+        
+            <!-- CLASSIFICATION FINAL -->
+            <!-- <div>
+              <label for="id_CLASSIFICATION_FINAL">CLASSIFICATION FINAL:</label>
+              {{ form.CLASSIFICATION_FINAL }}
+            </div> -->
+            <!-- <div class="w-100 border border-primary mx-auto">
+                    <button type="submit" class="mx-auto mb-4 w-25 btn bg-primary fw-bolder" style="color:white;">Submit</button>
+            </div> -->
+            <div class="w-100 mx-auto mb-4 ">
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class=" mt-2 btn bg-primary fw-bolder w-25" style="color:white;">Submit</button>
+                </div>
+            </div>
+          </form>
+    </div>
+    
+    <script>
+        // Get references to the radio buttons and the pregnant checkbox
+        const maleRadio = document.getElementById('maleRadio');
+        const femaleRadio = document.getElementById('femaleRadio');
+        const pregnantCheckbox = document.getElementById('id_PREGNANT'); // Manually set the ID of the checkbox
+        // Disable the "PREGNANT" checkbox
+        window.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('id_PREGNANT').disabled = true;
+        });
+
+        // Add event listener to the radio buttons
+        maleRadio.addEventListener('change', function () {
+            if (this.checked) {
+                // Disable the pregnant checkbox if male is selected
+                console.log('Male radio button is checked');
+                pregnantCheckbox.disabled = true;
+                pregnantCheckbox.checked = false; // Uncheck the checkbox if it was checked
+            }
+        });
+
+        femaleRadio.addEventListener('change', function () {
+            if (this.checked) {
+                // Enable the pregnant checkbox if female is selected
+                console.log('Female is checked');
+                pregnantCheckbox.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
