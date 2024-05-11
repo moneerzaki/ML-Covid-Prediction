@@ -1,0 +1,38 @@
+from django.db import models
+
+# Create your models here.
+
+class COVID_DATA_ML(models.Model):
+    USMER = models.BooleanField(default=False)
+    SEX = models.BooleanField(default=False)
+    PATIENT_TYPE = models.BooleanField(default=False)
+    # DEAD = models.BooleanField(default=False)
+    PNEUMONIA = models.BooleanField(default=False)
+    AGE = models.IntegerField(default=0)
+    PREGNANT = models.BooleanField(default=False)
+    DIABETES = models.BooleanField(default=False)
+    COPD = models.BooleanField(default=False)
+    ASTHMA = models.BooleanField(default=False)
+    INMSUPR = models.BooleanField(default=False)
+    HIPERTENSION = models.BooleanField(default=False)
+    OTHER_DISEASE = models.BooleanField(default=False)
+    CARDIOVASCULAR = models.BooleanField(default=False)
+    OBESITY = models.BooleanField(default=False)
+    RENAL_CHRONIC = models.BooleanField(default=False)
+    TOBACO = models.BooleanField(default=False)
+    # Add fields for MEDICAL_UNIT_2 to MEDICAL_UNIT_13 as needed
+    MEDICAL_UNIT_1 = models.BooleanField(default=False)
+    MEDICAL_UNIT_2 = models.BooleanField(default=False)
+    MEDICAL_UNIT_3 = models.BooleanField(default=False)
+    MEDICAL_UNIT_4 = models.BooleanField(default=False)
+    MEDICAL_UNIT_5 = models.BooleanField(default=False)
+    MEDICAL_UNIT_6 = models.BooleanField(default=False)
+    MEDICAL_UNIT_7 = models.BooleanField(default=False)
+    MEDICAL_UNIT_8 = models.BooleanField(default=False)
+    MEDICAL_UNIT_9 = models.BooleanField(default=False)
+    MEDICAL_UNIT_10 = models.BooleanField(default=False)
+    MEDICAL_UNIT_11 = models.BooleanField(default=False)
+    MEDICAL_UNIT_12 = models.BooleanField(default=False)
+    MEDICAL_UNIT_13 = models.BooleanField(default=False)
+    CLASSIFICATION_FINAL = models.BooleanField(default=False)
+    # GROUND_TRUTH = models.BooleanField(default=False)
