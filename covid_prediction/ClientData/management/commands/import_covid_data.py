@@ -50,7 +50,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         print("Importing COVID data from CSV...")
 
-        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '..', '..', 'fixtures', 'Covid.csv')
+        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '..', '..', 'fixtures', 'Final_Dataset.csv')
         successful_count = 0  # Counter for successful uploads
 
         with open(file_path, 'r') as csvfile:
@@ -61,43 +61,47 @@ class Command(BaseCommand):
                 # Process each row
                 try:
                     # Assuming the CSV columns match the model fields
-                    covid_data = COVID_DATA_ML.objects.create(
-                        usmer=row[0],
-                        sex=row[1],
-                        patient_type=row[2],
-                        dead=row[3],
-                        pneumonia=row[4],
-                        age=int(row[5]),
-                        pregnant=row[6],
-                        diabetes=row[7],
-                        copd=row[8],
-                        asthma=row[9],
-                        inmsupr=row[10],
-                        hipertension=row[11],
-                        other_disease=row[12],
-                        cardiovascular=row[13],
-                        obesity=row[14],
-                        renal_chronic=row[15],
-                        tobacco=row[16],
-                        medical_unit_1=row[17],
-                        medical_unit_2=row[18],
-                        medical_unit_3=row[19],
-                        medical_unit_4=row[20],
-                        medical_unit_5=row[21],
-                        medical_unit_6=row[22],
-                        medical_unit_7=row[23],
-                        medical_unit_8=row[24],
-                        medical_unit_9=row[25],
-                        medical_unit_10=row[26],
-                        medical_unit_11=row[27],
-                        medical_unit_12=row[28],
-                        medical_unit_13=row[29],
+                    # covid_data = 
+                    # print("HEHEEEEE:  ", type(row[5]), row[5])
+
+                    COVID_DATA_ML.objects.create(
+                        USMER=row[0],
+                        SEX=row[1],
+                        PATIENT_TYPE=row[2],
+                        # dead=row[3],
+                        PNEUMONIA=row[3],
+                        AGE=int(row[4]) if row[4] else 0,
+                        PREGNANT=row[5],
+                        DIABETES=row[6],
+                        COPD=row[7],
+                        ASTHMA=row[8],
+                        INMSUPR=row[9],
+                        HIPERTENSION=row[10],
+                        OTHER_DISEASE=row[11],
+                        CARDIOVASCULAR=row[12],
+                        OBESITY=row[13],
+                        RENAL_CHRONIC=row[14],
+                        TOBACO=row[15],
+                        MEDICAL_UNIT_1=row[16],
+                        MEDICAL_UNIT_2=row[17],
+                        MEDICAL_UNIT_3=row[18],
+                        MEDICAL_UNIT_4=row[19],
+                        MEDICAL_UNIT_5=row[20],
+                        MEDICAL_UNIT_6=row[21],
+                        MEDICAL_UNIT_7=row[22],
+                        MEDICAL_UNIT_8=row[23],
+                        MEDICAL_UNIT_9=row[24],
+                        MEDICAL_UNIT_10=row[25],
+                        MEDICAL_UNIT_11=row[26],
+                        MEDICAL_UNIT_12=row[27],
+                        MEDICAL_UNIT_13=row[28],
                         # Add more fields as needed
-                        classification_final=row[-1]  # Assuming last column is classification_final
+                        CLASSIFICATION_FINAL=row[-1]  # Assuming last column is classification_final
                     )
                     successful_count += 1
-                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    print(f"Successfully uploaded row {index} at {timestamp}")
+                    # timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    # print(f"Successfully uploaded row {index} at {timestamp}")
+                    print({index})
                 except Exception as e:
                     print(f"Error uploading row {index}: {str(e)}")
 
