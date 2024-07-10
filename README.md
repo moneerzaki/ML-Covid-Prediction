@@ -2,7 +2,7 @@
 a machine learning model that could predict the severity of a Covid patient depending on some personal details including age, sex, other diseases like: Asthma and obesity. and finally some sex-specific cases like pregnancy ...etc. 
 
 # This is the website homepage 
-![image](https://github.com/moneerzaki/ML-Covid-Prediction/assets/78418503/c31bf672-edeb-43e4-97b7-a986904e990a)
+![image](https://github.com/moneerzaki/ML-Covid-Prediction/assets/78418503/c31bf672-edeb-43e4-97b7-a986904e990a | width=50)
 
 Based on the fact that most people need a fast response to their own case if they are covid holders or not and that there is no need for a whole profile for each user, then we decided there is no need for registering to our page to be able to use the model. 
 Once, the user click on the button "Predict My Covido State" a form is presented infront of the user to fill and submit. 
